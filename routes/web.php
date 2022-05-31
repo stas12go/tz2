@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\StatsController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::view('/stopwatch', 'stopwatch')->name('stopwatch');
+Route::get('/gathering', [StatsController::class, 'gathering'])->name('gathering');
+Route::patch('/stats/store', [StatsController::class, 'store']);
+Route::get('/stats/{user}', [StatsController::class, 'show'])->middleware('auth')->name('stats');
 
-Route::get('/stats', function () {
-    return view('stats');
-})->middleware(['auth'])->name('stats');
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

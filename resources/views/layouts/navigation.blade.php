@@ -15,11 +15,11 @@
                     <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                         {{ __('Welcome') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('stopwatch')" :active="request()->routeIs('stopwatch')">
-                        Секундомер
+                    <x-nav-link :href="route('gathering')" :active="request()->routeIs('gathering')">
+                         Сбор данных
                     </x-nav-link>
                     @auth
-                        <x-nav-link :href="route('stats')" :active="request()->routeIs('stats')">
+                        <x-nav-link :href="route('stats', Auth::user())" :active="request()->routeIs('stats')">
                             Статистика
                         </x-nav-link>
                     @endauth
