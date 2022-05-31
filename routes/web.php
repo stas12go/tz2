@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\StatsController;
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------

@@ -18,4 +18,5 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
 ]);
 
 mix.js('resources/js/stopwatch.js', 'public/js');
+mix.js('resources/js/table-sort-rows.js', 'public/js');
 mix.postCss('resources/css/style.css', 'public/css');

@@ -11,19 +11,19 @@
                                     <table class="min-w-full">
                                         <thead class="bg-white border-b">
                                         <tr>
-                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                            <th id="ordinalNumber" scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left cursor-pointer whitespace-nowrap table-sort-rows">
                                                 #
                                             </th>
-                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                            <th id="ID" scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left cursor-pointer whitespace-nowrap table-sort-rows">
                                                 ID
                                             </th>
-                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                            <th id="IP" scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left cursor-pointer whitespace-nowrap table-sort-rows">
                                                 IP
                                             </th>
-                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                            <th id="visitPeriod" scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left cursor-pointer whitespace-nowrap table-sort-rows">
                                                 Период пребывания на странице
                                             </th>
-                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                            <th id="visitInterval" scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left cursor-pointer whitespace-nowrap table-sort-rows">
                                                 Время пребывания на странице
                                             </th>
                                         </tr>
@@ -41,7 +41,7 @@
                                                     {{ $item->user_IP }}
                                                 </td>
                                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                    {{ $item->visited_at }} - {{ $item->created_at }}
+                                                    {{ $item->visited_at }} - {{ $item->left_at }}
                                                 </td>
                                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                     {{ $item->time_interval }}
@@ -58,4 +58,7 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script defer src="{{ asset('js/table-sort-rows.js') }}"></script>
+    @endPush
 </x-app-layout>
