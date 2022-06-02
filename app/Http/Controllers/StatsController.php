@@ -74,14 +74,12 @@ class StatsController extends Controller
         if (Auth::check()) {
             $userID = Auth::id();
             $userIP = $request->ip();
-            $phpSessID = $_COOKIE['PHPSESSID'];
             $visitedAt = Carbon::createFromTimestamp($request->all()['visitedAt']);
             $leftAt = Carbon::createFromTimestamp($request->all()['leftAt']);
 
             $attributes = [
                 'user_id' => $userID,
                 'user_IP' => $userIP,
-                'SID' => $phpSessID,
                 'visited_at' => $visitedAt,
                 'left_at' => $leftAt,
             ];

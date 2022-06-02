@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->char('user_IP');
-            $table->char('SID');
             $table->timestamp('visited_at');
             $table->timestamp('left_at');
             $table->timestamps();

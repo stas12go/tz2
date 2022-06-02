@@ -12,10 +12,7 @@ class TableRow extends Component
      * @var int Порядковый номер записи.
      */
     public int $key;
-    /**
-     * @var Collection Коллекция данных о записи.
-     */
-    public Collection $item;
+    public $item;
 
     /**
      * Create a new component instance.
