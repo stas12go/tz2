@@ -19,7 +19,7 @@ class StatsController extends Controller
     public function show(): View
     {
         $stats = User::find(Auth::id())->stats;
-dd($stats);
+
         return view('stats.show', ['stats' => $stats]);
     }
 

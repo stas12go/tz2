@@ -1,6 +1,7 @@
 const tableHeads = document.querySelectorAll('.table-sort-rows');
 let element;
 let sortAsc = true;
+
 for (let index = 0; index < tableHeads.length; index++) {
     element = tableHeads[index];
     element.addEventListener('click', function (event) {
@@ -33,9 +34,6 @@ for (let index = 0; index < tableHeads.length; index++) {
 
         table.querySelector('tbody').innerHTML = '';
         for (let index = 0; index < tableRowsLength; index++) {
-            console.log('index', index);
-            console.log(sortedTableRows);
-            console.log(sortedTableRows[index]);
             table.querySelector('tbody').append(sortedTableRows[index]);
         }
 
