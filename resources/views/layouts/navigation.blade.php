@@ -19,7 +19,7 @@
                          Сбор данных
                     </x-nav-link>
                     @auth
-                        <x-nav-link :href="route('stats', Auth::user())" :active="request()->routeIs('stats')">
+                        <x-nav-link :href="route('stats')" :active="request()->routeIs('stats')">
                             Статистика
                         </x-nav-link>
                     @endauth

@@ -16,11 +16,51 @@ class StatsController extends Controller
      *
      * @return View
      */
-    public function show(User $user)
+    public function show(): View
     {
-        $stats = User::find($user->getAttribute('id'))->stats;
-
+        $stats = User::find(Auth::id())->stats;
+dd($stats);
         return view('stats.show', ['stats' => $stats]);
+    }
+
+    /**
+     * Метод предназначен для получения данных о статистике, отфильтрованных по времени. Используется в fetch-запросе.
+     *
+     * @return void
+     */
+    public function getFilteredStats(): void
+    {
+        if (empty($_GET['filterBy'])) {
+            echo json_encode('error');
+        } else {
+            switch ($_GET['filterBy']) {
+                case 'lastHour':
+                    $fromTime = Carbon::today()->subHour();
+                    break;
+                case 'lastDay':
+                    $fromTime = Carbon::today()->subDay();
+                    break;
+                case 'lastWeek':
+                    $fromTime = Carbon::today()->subWeek();
+                    break;
+                case 'lastMonth':
+                    $fromTime = Carbon::today()->subMonth();
+                    break;
+                case 'allTime':
+                    $fromTime = Carbon::createFromTimestamp(0);
+                    break;
+                default:
+                    break;
+            }
+
+            if (isset($fromTime)) {
+                $stats = User::find(Auth::id())->stats()->where('visited_at', '>', $fromTime)->get();
+
+                echo json_encode($stats);
+            } else {
+                echo json_encode('error');
+            }
+        }
     }
 
     /**

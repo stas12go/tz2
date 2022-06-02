@@ -2,6 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/js/stopwatch.js": "/js/stopwatch.js",
     "/js/table-sort-rows.js": "/js/table-sort-rows.js",
-    "/css/style.css": "/css/style.css",
+    "/js/table-filter-rows.js": "/js/table-filter-rows.js",
+    "/css/stopwatch.css": "/css/stopwatch.css",
     "/css/app.css": "/css/app.css"
 }

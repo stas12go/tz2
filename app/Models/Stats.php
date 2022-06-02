@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +14,14 @@ class Stats extends Model
     protected $guarded = [];
 
     /**
-     * Добавляет новый атрибут к статистике посещений страницы.
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['time_interval'];
+
+    /**
+     * Добавляет новый атрибут при извлечении данных из БД.
      *
      * @return string
      */
@@ -24,5 +32,18 @@ class Stats extends Model
         $diff = $visitedAt->diffInSeconds($leftAt);
 
         return gmdate('H:i:s', $diff);
+    }
+    /**
+     * Добавляет новый атрибут при кодировании данных в JSON.
+     *
+     * @return Attribute
+     */
+    protected function timeInterval(): Attribute
+    {
+        $timeInterval = $this->getTimeIntervalAttribute();
+
+        return new Attribute(
+            get: fn () => $timeInterval,
+        );
     }
 }

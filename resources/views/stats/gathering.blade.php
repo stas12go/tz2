@@ -14,6 +14,6 @@
     @endPush
 
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/stopwatch.css') }}">
     @endPush
 </x-app-layout>

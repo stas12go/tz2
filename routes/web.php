@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/gathering', [StatsController::class, 'gathering'])->name('gathering');
 Route::patch('/stats/store', [StatsController::class, 'store']);
-Route::get('/stats/{user}', [StatsController::class, 'show'])->middleware('auth')->name('stats');
+Route::get('/stats', [StatsController::class, 'show'])->middleware('auth')->name('stats');
+Route::get('/getFilteredStats', [StatsController::class, 'getFilteredStats']);
 
 require __DIR__ . '/auth.php';
